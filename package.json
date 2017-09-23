@@ -1,0 +1,21 @@
+{
+  "name": "programminghub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "mysql": "^2.14.1",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "express-session": "^1.14.2",
+    "method-override": "^2.3.7",
+    "morgan": "^1.7.0"
+  }
+}

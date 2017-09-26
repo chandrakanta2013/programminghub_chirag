@@ -9,7 +9,6 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var exp 		= require('express');
 var config 		= require('./configs/configs');
 var express 	= require('./configs/express');
-var mysql 		= require('./configs/mysql');
 var app 		= express();
 
 /************

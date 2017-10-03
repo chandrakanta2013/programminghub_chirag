@@ -42,8 +42,7 @@ class Program {
 
         let table = [
             data.programname, data.programdescription, data.programcategory, data.programlanguage, data.descimagebase64,
-            data.descimageurl, data.code, data.exampleoutput, data.difficultylevel, data.Isrunnable,
-            data.inputOutput
+            data.descimageurl, data.code, data.exampleoutput, data.difficultylevel, data.Isrunnable, data.inputOutput
         ];
 
         // Executing Db query

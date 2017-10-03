@@ -35,10 +35,13 @@ class ProgramController {
 
     store() {
 
-        if (!this.req.body.programname
-            || !this.req.body.programcategory
-            || !this.req.body.programlanguage
-            || !this.req.body.code
+        let data = this.req.body.data;
+        console.log(data);
+
+        if (!data.programname
+            || !data.programcategory
+            || !data.programlanguage
+            || !data.code
         ) {
             this.res.status(400);
             return this.res.send({
@@ -47,7 +50,7 @@ class ProgramController {
             });
         }
 
-        this.repo.save(this.req.body).then(() => {
+        this.repo.save(data).then(() => {
             this.res.send({
                 message: "SUCCESS",
                 reason: ""

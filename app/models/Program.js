@@ -18,13 +18,15 @@ class Program {
             let queryResult = mysql.format(query, table);
 
             connection.query(queryResult, function (err, rows) {
+                let error = rows.pop();
+                if (error[0]['@error_message']) {
+                    reject(error[0]['@error_message']);
+                }
+
                 let response = rows[0];
                 if (err) {
                     reject(err.message);
                 } else {
-                    if (typeof response[0] !== 'undefined' && typeof response[0]['@error_message'] !== 'undefined') {
-                        reject(response[0]['@error_message']);
-                    }
                     resolve(response);
                 }
             });

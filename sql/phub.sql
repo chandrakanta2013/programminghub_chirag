@@ -325,11 +325,11 @@ START TRANSACTION;
 SET category_id = (SELECT id FROM `category` WHERE category_name = param_category_name);
 SET language_id = (SELECT id FROM `language` WHERE language_name = param_language_name);
 
-IF category_id = 0 THEN 
+IF category_id IS NULL THEN
 	SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Category not found.';
 END IF;
 
-IF language_id = 0 THEN 
+IF language_id IS NULL THEN
 	SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Language not found.';
 END IF;
 

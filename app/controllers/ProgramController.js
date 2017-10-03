@@ -25,11 +25,11 @@ class ProgramController {
         this.repo.get(this.req.query).then((rows) => {
             let response = collection.rows(rows);
             this.res.status(response.statusCode);
-            this.res.send(response.data);
+            return this.res.send(response.data);
         }).catch((err) => {
             let response = collection.error(err);
             this.res.status(response.statusCode);
-            this.res.send(response.data);
+            return this.res.send(response.data);
         });
     }
 
@@ -37,11 +37,7 @@ class ProgramController {
 
         let data = this.req.body.data;
 
-        if (!data.programname
-            || !data.programcategory
-            || !data.programlanguage
-            || !data.code
-        ) {
+        if (!data.programname || !data.programcategory || !data.programlanguage || !data.code) {
             this.res.status(400);
             return this.res.send({
                 message: "FAILURE",
@@ -50,12 +46,12 @@ class ProgramController {
         }
 
         this.repo.save(data).then(() => {
-            this.res.send({
+            return this.res.send({
                 message: "SUCCESS",
                 reason: ""
             });
         }).catch((err) => {
-            this.res.send({
+            return this.res.send({
                 message: "FAILURE",
                 reason: err
             });

@@ -5,6 +5,8 @@
 ```javascript
 Sample Request
 
+POST http://localhost:3000/programminghub/saveProgram
+
 {
 	"data": {
 		"programname": "Sum",
@@ -36,7 +38,7 @@ Sample Response
 ```javascript
 Sample Request
 
-http://localhost:3000/programminghub/getProgram?version=123&client=android&app=p_hub&language=php
+GET http://localhost:3000/programminghub/getProgram?version=123&client=android&app=p_hub&language=php
 ```
 
 ```javascript

@@ -55,7 +55,7 @@ class ProgramController {
         }).catch((err) => {
             this.res.send({
                 message: "FAILURE",
-                reason: err.message
+                reason: err
             });
         });
 

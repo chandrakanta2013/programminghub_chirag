@@ -21,8 +21,8 @@ class Collection {
             this.response.name.push(row.name);
             this.response.desc.push(row.desc);
             this.response.program.push(row.program);
-            this.response.input.push(row.input.split('-'));
-            this.response.output.push(row.output.split('-'));
+            this.response.input.push((row.input) ? row.input.split('-') : []);
+            this.response.output.push((row.output) ? row.output.split('-'): []);
             this.response.runnable.push(row.runnable);
         });
         this.response.message = 'SUCCESS';

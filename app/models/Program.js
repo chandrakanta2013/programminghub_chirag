@@ -46,8 +46,6 @@ class Program {
             data.inputOutput
         ];
 
-        console.log(data.inputOutput);
-
         // Executing Db query
         return new Promise((resolve, reject) => {
 

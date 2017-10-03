@@ -36,7 +36,6 @@ class ProgramController {
     store() {
 
         let data = this.req.body.data;
-        console.log(data);
 
         if (!data.programname
             || !data.programcategory

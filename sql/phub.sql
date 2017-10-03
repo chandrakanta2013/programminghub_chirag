@@ -105,7 +105,7 @@ CREATE TABLE `program` (
   `program_name` varchar(100) NOT NULL,
   `program_description` varchar(500) DEFAULT NULL,
   `category_id` int(11) NOT NULL,
-  `description_image_base64` varchar(1000) DEFAULT NULL,
+  `description_image_base64` mediumtext DEFAULT NULL,
   `description_image_url` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `program_category_id_idx` (`category_id`),
@@ -300,7 +300,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `save_program`(param_program_name varchar(100), param_program_description varchar(100), param_category_name varchar(100), param_language_name varchar(100), param_desc_image_base64 varchar(1000), param_desc_image_url varchar(500), param_code mediumtext, param_example_output mediumtext, param_difficulty_level int(11), param_is_runnable varchar(45), param_input_output varchar(500))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `save_program`(param_program_name varchar(100), param_program_description varchar(500), param_category_name varchar(100), param_language_name varchar(100), param_desc_image_base64 mediumtext, param_desc_image_url varchar(500), param_code mediumtext, param_example_output mediumtext, param_difficulty_level tinyint(1), param_is_runnable char(1), param_input_output mediumtext)
 BEGIN
 
 # Declare variables

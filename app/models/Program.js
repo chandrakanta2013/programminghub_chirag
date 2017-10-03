@@ -9,7 +9,6 @@ class Program {
 
         let table = [data.version, data.client, data.app, data.language, data.from, data.to];
 
-
         // Executing Db query
         return new Promise((resolve, reject) => {
 
@@ -38,21 +37,8 @@ class Program {
 
         data.difficultylevel = (typeof data.difficultylevel === 'undefined') ? 1 : data.difficultylevel;
         data.Isrunnable = (typeof data.Isrunnable === 'undefined') ? 'N' : data.Isrunnable;
-        data.inputOutput = null;
-        data.inputOutputLength = null;
-        if (data.input instanceof Array && data.output instanceof Array) {
-            let inputOutput = '';
-            for (let i = 0; i < data.input.length; i++) {
-                let input = data.input[i];
-                let output = (typeof data.output[i] !== 'undefined') ? data.output[i] : '';
-                inputOutput += "('::PD_ID::', '" + input + "', '" + output + "')";
-                if (i < (data.input.length - 1)) {
-                    inputOutput += ",";
-                }
-            }
-            data.inputOutput = inputOutput;
-        }
-
+        data.inputOutput = this.getIO(data);
+        data.inputOutput = (!data.inputOutput) ? null : data.inputOutput;
 
         let table = [
             data.programname, data.programdescription, data.programcategory, data.programlanguage, data.descimagebase64,
@@ -60,6 +46,7 @@ class Program {
             data.inputOutput
         ];
 
+        console.log(data.inputOutput);
 
         // Executing Db query
         return new Promise((resolve, reject) => {
@@ -81,6 +68,21 @@ class Program {
                 }
             });
         });
+    }
+
+    getIO(data) {
+        let inputOutput = '';
+        if (data.input instanceof Array && data.output instanceof Array) {
+            for (let i = 0; i < data.input.length; i++) {
+                let input = data.input[i];
+                let output = (typeof data.output[i] !== 'undefined') ? data.output[i] : '';
+                inputOutput += "('::PD_ID::', '" + input + "', '" + output + "')";
+                if (i < (data.input.length - 1)) {
+                    inputOutput += ",";
+                }
+            }
+        }
+        return inputOutput;
     }
 }
 

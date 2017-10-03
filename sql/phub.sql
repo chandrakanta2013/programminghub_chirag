@@ -263,7 +263,7 @@ SET @sql = "
     INNER JOIN program_details AS pd ON pd.language_id = l.id
     INNER JOIN program AS p ON p.id = pd.program_id
     INNER JOIN category AS c ON c.id = p.category_id
-    INNER JOIN program_io AS pi ON pi.program_details_id = pd.id
+    LEFT JOIN program_io AS pi ON pi.program_details_id = pd.id
     WHERE
         language_name = ? 
 	GROUP BY p.id

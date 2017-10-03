@@ -240,8 +240,6 @@ BEGIN
 	SET @error_message = @text;
 END;
 
-#SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Language not found.';
-
 # log request
 INSERT INTO request_log (`version_no`, `client`, `app_name`, `language`) 
 VALUES (param_version_no, param_client, param_app_name, param_lang_name);

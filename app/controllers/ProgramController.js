@@ -46,15 +46,9 @@ class ProgramController {
         }
 
         this.repo.save(data).then(() => {
-            return this.res.send({
-                message: "SUCCESS",
-                reason: ""
-            });
+            return this.res.send({ message: "SUCCESS", reason: "" });
         }).catch((err) => {
-            return this.res.send({
-                message: "FAILURE",
-                reason: err
-            });
+            return this.res.send({ message: "FAILURE", reason: err });
         });
 
     }
